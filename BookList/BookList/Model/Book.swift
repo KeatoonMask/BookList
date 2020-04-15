@@ -8,14 +8,8 @@
 
 import Foundation
 
-struct Book: Codable, Identifiable {
+struct Book: Identifiable {
     var id: String
     var title: String
     var author: String
-    var genre: String
-    var publisher: String
-    var releaseDate: String
-    var pagesNumber: Int
-    var description: String
-    var coverImage: String
 }
