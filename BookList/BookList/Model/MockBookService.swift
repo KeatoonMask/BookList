@@ -13,13 +13,13 @@ class MockBookService: BookService {
     static private var bookDescription = ""
 
     private var books: [Book] = [
-        Book(id: "1", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "2", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "3", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "4", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "5", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "6", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien"),
-        Book(id: "7", title: "The Lord of the Rings: The Fellowship of the Ring ", author: "J. R. R. Tolkien")
+        Book(id: "1", title: "The Lord of the Rings: The Two Towers", author: "J. R. R. Tolkien"),
+        Book(id: "2", title: "Homo Deus: A Brief History of Tomorrow", author: "Yuval Noah Harari"),
+        Book(id: "3", title: "The 4-Hour Workweek", author: "Timothy Ferriss"),
+        Book(id: "4", title: "Man's Search for Meaning", author: "Viktor E. Frankl"),
+        Book(id: "5", title: "The Odyssey", author: "Homer"),
+        Book(id: "6", title: "Artificial Intelligence: A Modern Approach", author: "Stuart J. Rossell"),
+        Book(id: "7", title: "Creativity, Inc.", author: "Ed Catmull")
     ]
 
     private var booksDetail: [BookDetail] = [
