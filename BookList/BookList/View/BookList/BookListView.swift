@@ -20,7 +20,9 @@ struct BookListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.books) { book in
-                BookRow(book: book)
+                NavigationLink(destination: BookDetailView(bookId: book.id)) {
+                    BookRow(book: book)
+                }
             }
             .navigationBarTitle("Library")
         }
@@ -29,9 +31,7 @@ struct BookListView: View {
 
 struct BookListView_Previews: PreviewProvider {
     static var previews: some View {
-        let booksService = MockBookService()
-        let books = booksService.bookList()
-        let viewModel = AnyViewModel(BookListViewModel(books: books))
+        let viewModel = AnyViewModel(BookListViewModel())
         return BookListView(viewModel: viewModel)
     }
 }

@@ -10,5 +10,5 @@ import Foundation
 
 protocol BookService {
     func bookList() -> [Book]
-    func bookDetails(bookId: String) -> BookDetail
+    func bookDetails(bookId: Int) -> BookDetail
 }

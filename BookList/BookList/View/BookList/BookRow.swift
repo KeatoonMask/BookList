@@ -21,6 +21,6 @@ struct BookRow: View {
 
 struct BookRow_Previews: PreviewProvider {
     static var previews: some View {
-        BookRow(book: Book(id: "1", title: "The Lord of the Rings: The Fellowship of the Ring", author: "J. R. R. Tolkien"))
+        BookRow(book: Book(id: 1, title: "The Lord of the Rings: The Fellowship of the Ring", author: "J. R. R. Tolkien"))
     }
 }

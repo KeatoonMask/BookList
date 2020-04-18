@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book: Identifiable {
-    var id: String
+    var id: Int
     var title: String
     var author: String
 }
