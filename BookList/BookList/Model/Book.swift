@@ -7,9 +7,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Book: Identifiable {
     var id: Int
     var title: String
     var author: String
+    var imageName: String
+}
+
+extension Book {
+    var image: Image {
+        ImageStore.shared.image(name: imageName)
+    }
 }

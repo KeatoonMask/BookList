@@ -8,15 +8,9 @@
 
 import Foundation
 
-struct Genre: Decodable {
-    let id: GenreId
-    let name: String
-}
-
-enum GenreId: String, Decodable, Hashable {
+enum Genre: String, Hashable {
     case action
     case adventure
-    case crime
     case drama
     case fantasy
     case history
@@ -29,7 +23,6 @@ enum GenreId: String, Decodable, Hashable {
         switch self {
             case .action: return NSLocalizedString("Action", comment: "Action")
             case .adventure: return NSLocalizedString("Adventure", comment: "Adventure")
-            case .crime: return NSLocalizedString("Crime", comment: "Crime")
             case .drama: return NSLocalizedString("Drama", comment: "Drama")
             case .fantasy: return NSLocalizedString("Fantasy", comment: "Fantasy")
             case .history: return NSLocalizedString("History", comment: "History")

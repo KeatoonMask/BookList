@@ -12,7 +12,9 @@ import SwiftUI
 struct BookDetail {
     var id: String
     var bookId: Int
-    var genre: String
+    var author: String
+    var title: String
+    var genre: [Genre]
     var publisher: String
     var releaseDate: String
     var pagesNumber: Int

@@ -22,7 +22,55 @@ struct BookDetailView: View {
     }
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            VStack {
+                viewModel.bookDetail.image
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .gray, radius: 10, x: 5, y: 5)
+                    .padding(.bottom, 15)
+
+
+                Text(viewModel.bookDetail.author)
+                    .foregroundColor(.gray)
+                    .padding(.bottom)
+
+                Text(viewModel.bookDetail.title)
+                    .font(.system(size: 24, weight: .semibold))
+            }
+
+            Spacer()
+                .frame(height: 20)
+
+            Text(viewModel.bookDetail.description)
+            .padding(20)
+            .lineLimit(4)
+            .lineSpacing(10)
+                .foregroundColor(.gray)
+
+            HStack(spacing: 20) {
+                BookDetailLabelView(text: "Novel")
+                ForEach(0 ..< viewModel.bookDetail.genre.count, id: \.self) { index in
+                    BookDetailLabelView(text: self.viewModel.bookDetail.genre[index].description)
+
+                }
+            }
+
+            Divider().padding()
+
+            Button(action: {
+                print("Delete tapped!")
+            }) {
+                HStack {
+                    Text("Buy for 18.85$")
+                        .fontWeight(.semibold)
+                }
+                .frame(width: 200)
+                .padding()
+                .foregroundColor(.white)
+                .background(Color.black)
+                .cornerRadius(40)
+            }
+        }
     }
 }
 

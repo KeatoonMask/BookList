@@ -15,11 +15,6 @@ class BookListViewModel: ViewModel {
 
     init() {
         let books = MockBookService().bookList()
-//        var detailViewModels = [AnyViewModel<BookDetailState, Never>]()
-//        for book in books {
-//            let viewModel = AnyViewModel(BookDetailViewModel(id: book.id))
-//            detailViewModels.append(viewModel)
-//        }
         self.state = BookListState(books: books)
     }
 
