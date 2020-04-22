@@ -15,11 +15,11 @@ struct BookDetail {
     var author: String
     var title: String
     var genre: [Genre]
-    var publisher: String
-    var releaseDate: String
-    var pagesNumber: Int
+    var kind: String
     var description: String
     var imageName: String
+    var isWishlistItem: Bool
+    var isAvailable: Bool
 }
 
 extension BookDetail {

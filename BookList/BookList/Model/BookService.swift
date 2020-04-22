@@ -11,4 +11,5 @@ import Foundation
 protocol BookService {
     func bookList() -> [Book]
     func bookDetails(bookId: Int) -> BookDetail
+    func includeInWishlist(bookId: Int) 
 }

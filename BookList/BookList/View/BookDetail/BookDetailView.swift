@@ -70,7 +70,13 @@ struct BookDetailView: View {
                 .background(Color.black)
                 .cornerRadius(40)
             }
-        }
+        }.navigationBarItems(trailing:
+            Button(action: {
+                
+            }) {
+                Image("iconWishlist").foregroundColor(.black)
+            }
+        )
     }
 }
 
