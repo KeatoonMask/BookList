@@ -71,10 +71,8 @@ struct BookDetailView: View {
                 .cornerRadius(40)
             }
         }.navigationBarItems(trailing:
-            Button(action: {
-                
-            }) {
-                Image("iconWishlist").foregroundColor(.black)
+            NavigationLink(destination: CartView()) {
+                CartButtonView(numberOfItems: 4)
             }
         )
     }
