@@ -21,7 +21,7 @@ struct BookListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.state.books) { book in
-                NavigationLink(destination: BookDetailView(service: self.viewModel.state.service, bookId: book.id)) {
+                NavigationLink(destination: NavigationLazyView(BookDetailView(service: self.viewModel.state.service, bookId: book.id))) {
                     BookRow(book: book)
                 }
             }
