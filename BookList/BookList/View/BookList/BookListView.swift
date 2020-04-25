@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct BookListState {
+    var service: BookService
     var books: [Book]
 }
 
@@ -19,8 +20,8 @@ struct BookListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.books) { book in
-                NavigationLink(destination: BookDetailView(bookId: book.id)) {
+            List(viewModel.state.books) { book in
+                NavigationLink(destination: BookDetailView(service: self.viewModel.state.service, bookId: book.id)) {
                     BookRow(book: book)
                 }
             }
@@ -31,7 +32,7 @@ struct BookListView: View {
 
 struct BookListView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = AnyViewModel(BookListViewModel())
+        let viewModel = AnyViewModel(BookListViewModel(service: MockBookService()))
         return BookListView(viewModel: viewModel)
     }
 }

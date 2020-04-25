@@ -9,16 +9,16 @@
 import Foundation
 import SwiftUI
 
-struct BookDetail {
+struct BookDetail: Identifiable {
     var id: String
     var bookId: Int
     var author: String
     var title: String
+    var price: Double
     var genre: [Genre]
     var kind: String
     var description: String
     var imageName: String
-    var isWishlistItem: Bool
     var isAvailable: Bool
 }
 

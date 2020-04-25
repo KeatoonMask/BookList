@@ -30,7 +30,7 @@ struct CartButtonView: View {
             ZStack {
                 Text(String(numberOfItems))
                     .font(.system(size: 12))
-                    .foregroundColor(.gray)
+                    .foregroundColor(.black)
                     .padding(5)
             }
         }

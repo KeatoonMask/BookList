@@ -9,16 +9,22 @@
 import SwiftUI
 
 struct BookDetailState {
+    var service: BookService
     var bookDetail: BookDetail
+    var cartItems: Int
+}
+
+enum BookDetailInput {
+    case addBookToCart
 }
 
 struct BookDetailView: View {
 
     @ObservedObject
-    var viewModel: AnyViewModel<BookDetailState, Never>
+    var viewModel: AnyViewModel<BookDetailState, BookDetailInput>
 
-    init(bookId: Int) {
-        self.viewModel = AnyViewModel(BookDetailViewModel(id: bookId))
+    init(service: BookService, bookId: Int) {
+        self.viewModel = AnyViewModel(BookDetailViewModel(service: service, id: bookId))
     }
 
     var body: some View {
@@ -48,20 +54,18 @@ struct BookDetailView: View {
                 .foregroundColor(.gray)
 
             HStack(spacing: 20) {
-                BookDetailLabelView(text: "Novel")
                 ForEach(0 ..< viewModel.bookDetail.genre.count, id: \.self) { index in
                     BookDetailLabelView(text: self.viewModel.bookDetail.genre[index].description)
 
                 }
+                BookDetailLabelView(text: viewModel.bookDetail.kind)
             }
 
             Divider().padding()
 
-            Button(action: {
-                print("Delete tapped!")
-            }) {
+            Button(action: addToCart) {
                 HStack {
-                    Text("Buy for 18.85$")
+                    Text("Buy for " + String(viewModel.bookDetail.price) + "$")
                         .fontWeight(.semibold)
                 }
                 .frame(width: 200)
@@ -72,15 +76,21 @@ struct BookDetailView: View {
             }
         }.navigationBarItems(trailing:
             NavigationLink(destination: CartView()) {
-                CartButtonView(numberOfItems: 4)
+                CartButtonView(numberOfItems: viewModel.cartItems)
             }
         )
     }
 }
 
+private extension BookDetailView {
+    func addToCart() {
+        viewModel.trigger(.addBookToCart)
+    }
+}
+
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        return BookDetailView(bookId: 0)
+        return BookDetailView(service: MockBookService(), bookId: 0)
     }
 }
 

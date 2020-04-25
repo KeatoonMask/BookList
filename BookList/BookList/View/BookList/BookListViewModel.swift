@@ -13,9 +13,9 @@ class BookListViewModel: ViewModel {
     @Published
     var state: BookListState
 
-    init() {
+    init(service: BookService) {
         let books = MockBookService().bookList()
-        self.state = BookListState(books: books)
+        self.state = BookListState(service: service, books: books)
     }
 
     func trigger(_ input: Never) { }

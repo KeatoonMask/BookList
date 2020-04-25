@@ -13,10 +13,17 @@ class BookDetailViewModel: ViewModel {
     @Published
     var state: BookDetailState
 
-    init(id: Int) {
-        let detail = MockBookService().bookDetails(bookId: 0)
-        state = BookDetailState(bookDetail: detail)
+    init(service: BookService, id: Int) {
+        let detail = service.bookDetails(bookId: 0)
+        let items = service.cartItems()
+        state = BookDetailState(service: service, bookDetail: detail, cartItems: items)
     }
 
-    func trigger(_ input: Never) { }
+    func trigger(_ input: BookDetailInput) {
+        switch input {
+        case .addBookToCart:
+            state.service.addToCart(bookId: state.bookDetail.bookId)
+            state.cartItems = state.service.cartItems()
+        }
+    }
 }
