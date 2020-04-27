@@ -13,19 +13,13 @@ struct BookRow: View {
 
     var body: some View {
         HStack {
-            book.image
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 50, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: .gray, radius: 10, x: 5, y: 5)
-            .padding()
+            BookImage(image: book.image)
             
             VStack(alignment: .leading) {
                 Text(book.title).font(.headline)
                 Text("by " + book.author).font(.subheadline).foregroundColor(.gray)
                 Spacer().frame(height: 15)
-                Text("18.85$").font(.title)
+                Text("$" + String(book.price)).font(.title)
             }
         }
     }
@@ -33,6 +27,6 @@ struct BookRow: View {
 
 struct BookRow_Previews: PreviewProvider {
     static var previews: some View {
-        BookRow(book: Book(id: 1, title: "The Lord of the Rings: The Fellowship of the Ring", author: "J. R. R. Tolkien", price: 18.85, imageName: "fellowship"))
+        BookRow(book: Book(id: 0, title: "The Lord of the Rings: The Fellowship of the Ring", author: "J. R. R. Tolkien", price: 18.85, imageName: "fellowship"))
     }
 }

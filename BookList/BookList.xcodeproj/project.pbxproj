@@ -12,7 +12,6 @@
 		D5187B3A24464A59001BB0BC /* MockBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5187B3924464A59001BB0BC /* MockBookService.swift */; };
 		D52B387F24544C070091B62F /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52B387E24544C070091B62F /* Cart.swift */; };
 		D52B3887245490370091B62F /* NavigationLazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52B3886245490370091B62F /* NavigationLazyView.swift */; };
-		D542E90D244C73FA00A90F29 /* fellowship.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D542E90C244C73FA00A90F29 /* fellowship.jpg */; };
 		D542E90F244C91E700A90F29 /* BookDetailLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D542E90E244C91E700A90F29 /* BookDetailLabelView.swift */; };
 		D54D3544244B2375004B44A5 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D3543244B2375004B44A5 /* Genre.swift */; };
 		D54D3546244B290F004B44A5 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D3545244B290F004B44A5 /* BookDetailView.swift */; };
@@ -21,6 +20,17 @@
 		D54D354E244B350A004B44A5 /* chilkoottrail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D54D354D244B350A004B44A5 /* chilkoottrail.jpg */; };
 		D54F1D702448CEB8008851F5 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1D6F2448CEB8008851F5 /* BookListView.swift */; };
 		D54F1D722448D051008851F5 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1D712448D051008851F5 /* BookListViewModel.swift */; };
+		D5682B3C2455A40700688D68 /* CartRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5682B3B2455A40700688D68 /* CartRow.swift */; };
+		D5682B3E2455AD1600688D68 /* BookImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5682B3D2455AD1600688D68 /* BookImage.swift */; };
+		D5682B472455B54400688D68 /* homoDeus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B3F2455B54300688D68 /* homoDeus.jpg */; };
+		D5682B482455B54400688D68 /* creativity.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B402455B54300688D68 /* creativity.jpg */; };
+		D5682B4A2455B54400688D68 /* manSearch.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B422455B54400688D68 /* manSearch.jpg */; };
+		D5682B4B2455B54400688D68 /* odyssey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B432455B54400688D68 /* odyssey.jpg */; };
+		D5682B4C2455B54400688D68 /* ai.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B442455B54400688D68 /* ai.jpg */; };
+		D5682B4D2455B54400688D68 /* twoTowers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B452455B54400688D68 /* twoTowers.jpg */; };
+		D5682B4E2455B54400688D68 /* the4Hours.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B462455B54400688D68 /* the4Hours.jpg */; };
+		D5682B502455B62B00688D68 /* fellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D5682B4F2455B62B00688D68 /* fellow.jpg */; };
+		D5682B522455CA2200688D68 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5682B512455CA2200688D68 /* CartViewModel.swift */; };
 		D56A71A4244764FA009E55FB /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56A71A3244764FA009E55FB /* BookDetail.swift */; };
 		D56A71A724476F0F009E55FB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56A71A624476F0F009E55FB /* ViewModel.swift */; };
 		D56A71AD24477E83009E55FB /* BookRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56A71AC24477E83009E55FB /* BookRow.swift */; };
@@ -40,7 +50,6 @@
 		D5187B3924464A59001BB0BC /* MockBookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookService.swift; sourceTree = "<group>"; };
 		D52B387E24544C070091B62F /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		D52B3886245490370091B62F /* NavigationLazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLazyView.swift; sourceTree = "<group>"; };
-		D542E90C244C73FA00A90F29 /* fellowship.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fellowship.jpg; sourceTree = "<group>"; };
 		D542E90E244C91E700A90F29 /* BookDetailLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailLabelView.swift; sourceTree = "<group>"; };
 		D54D3543244B2375004B44A5 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		D54D3545244B290F004B44A5 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -49,6 +58,17 @@
 		D54D354D244B350A004B44A5 /* chilkoottrail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chilkoottrail.jpg; sourceTree = "<group>"; };
 		D54F1D6F2448CEB8008851F5 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		D54F1D712448D051008851F5 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
+		D5682B3B2455A40700688D68 /* CartRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRow.swift; sourceTree = "<group>"; };
+		D5682B3D2455AD1600688D68 /* BookImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImage.swift; sourceTree = "<group>"; };
+		D5682B3F2455B54300688D68 /* homoDeus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = homoDeus.jpg; sourceTree = "<group>"; };
+		D5682B402455B54300688D68 /* creativity.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = creativity.jpg; sourceTree = "<group>"; };
+		D5682B422455B54400688D68 /* manSearch.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = manSearch.jpg; sourceTree = "<group>"; };
+		D5682B432455B54400688D68 /* odyssey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = odyssey.jpg; sourceTree = "<group>"; };
+		D5682B442455B54400688D68 /* ai.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ai.jpg; sourceTree = "<group>"; };
+		D5682B452455B54400688D68 /* twoTowers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twoTowers.jpg; sourceTree = "<group>"; };
+		D5682B462455B54400688D68 /* the4Hours.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = the4Hours.jpg; sourceTree = "<group>"; };
+		D5682B4F2455B62B00688D68 /* fellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fellow.jpg; sourceTree = "<group>"; };
+		D5682B512455CA2200688D68 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		D56A71A3244764FA009E55FB /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
 		D56A71A624476F0F009E55FB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D56A71AC24477E83009E55FB /* BookRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRow.swift; sourceTree = "<group>"; };
@@ -111,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				D52B3886245490370091B62F /* NavigationLazyView.swift */,
+				D5682B3D2455AD1600688D68 /* BookImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -129,7 +150,14 @@
 			isa = PBXGroup;
 			children = (
 				D54D354D244B350A004B44A5 /* chilkoottrail.jpg */,
-				D542E90C244C73FA00A90F29 /* fellowship.jpg */,
+				D5682B4F2455B62B00688D68 /* fellow.jpg */,
+				D5682B442455B54400688D68 /* ai.jpg */,
+				D5682B402455B54300688D68 /* creativity.jpg */,
+				D5682B3F2455B54300688D68 /* homoDeus.jpg */,
+				D5682B422455B54400688D68 /* manSearch.jpg */,
+				D5682B432455B54400688D68 /* odyssey.jpg */,
+				D5682B462455B54400688D68 /* the4Hours.jpg */,
+				D5682B452455B54400688D68 /* twoTowers.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -206,8 +234,10 @@
 		D5C343ED24523E8C009C9393 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				D5C343F024523F02009C9393 /* CartView.swift */,
 				D5C343EE24523EDD009C9393 /* CartButtonView.swift */,
+				D5682B3B2455A40700688D68 /* CartRow.swift */,
+				D5C343F024523F02009C9393 /* CartView.swift */,
+				D5682B512455CA2200688D68 /* CartViewModel.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -270,11 +300,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5682B502455B62B00688D68 /* fellow.jpg in Resources */,
 				D5BF5CA02444DB8F00730D53 /* LaunchScreen.storyboard in Resources */,
-				D542E90D244C73FA00A90F29 /* fellowship.jpg in Resources */,
+				D5682B472455B54400688D68 /* homoDeus.jpg in Resources */,
+				D5682B482455B54400688D68 /* creativity.jpg in Resources */,
+				D5682B4C2455B54400688D68 /* ai.jpg in Resources */,
+				D5682B4D2455B54400688D68 /* twoTowers.jpg in Resources */,
 				D54D354E244B350A004B44A5 /* chilkoottrail.jpg in Resources */,
+				D5682B4B2455B54400688D68 /* odyssey.jpg in Resources */,
+				D5682B4A2455B54400688D68 /* manSearch.jpg in Resources */,
 				D5BF5C9D2444DB8F00730D53 /* Preview Assets.xcassets in Resources */,
 				D5BF5C9A2444DB8F00730D53 /* Assets.xcassets in Resources */,
+				D5682B4E2455B54400688D68 /* the4Hours.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,12 +331,15 @@
 				D5187B38244649FB001BB0BC /* BookService.swift in Sources */,
 				D54D354A244B2F4C004B44A5 /* ImageStore.swift in Sources */,
 				D5C343EF24523EDD009C9393 /* CartButtonView.swift in Sources */,
+				D5682B522455CA2200688D68 /* CartViewModel.swift in Sources */,
 				D5BF5C942444DB8C00730D53 /* AppDelegate.swift in Sources */,
 				D5BF5C962444DB8C00730D53 /* SceneDelegate.swift in Sources */,
 				D56A71A4244764FA009E55FB /* BookDetail.swift in Sources */,
 				D54F1D722448D051008851F5 /* BookListViewModel.swift in Sources */,
+				D5682B3C2455A40700688D68 /* CartRow.swift in Sources */,
 				D54F1D702448CEB8008851F5 /* BookListView.swift in Sources */,
 				D54D354C244B330C004B44A5 /* BookDetailViewModel.swift in Sources */,
+				D5682B3E2455AD1600688D68 /* BookImage.swift in Sources */,
 				D56A71A724476F0F009E55FB /* ViewModel.swift in Sources */,
 				D52B3887245490370091B62F /* NavigationLazyView.swift in Sources */,
 				D542E90F244C91E700A90F29 /* BookDetailLabelView.swift in Sources */,
@@ -440,9 +480,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookList/Preview Content\"";
-				DEVELOPMENT_TEAM = 2SNP4C8GTH;
+				DEVELOPMENT_TEAM = TQL2DL7S9V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,6 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.serafinennes.BookList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,9 +502,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"BookList/Preview Content\"";
-				DEVELOPMENT_TEAM = 2SNP4C8GTH;
+				DEVELOPMENT_TEAM = TQL2DL7S9V;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = BookList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -471,6 +514,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.serafinennes.BookList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

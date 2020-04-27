@@ -8,7 +8,11 @@
 
 import Foundation
 
-typealias Item = (item: Book, units: Int)
+struct Item: Identifiable {
+    var id: String
+    var item: Book
+    var units: Int
+}
 
 struct Cart {
     var items: [Item]

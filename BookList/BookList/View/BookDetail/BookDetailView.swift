@@ -31,10 +31,13 @@ struct BookDetailView: View {
         VStack {
             VStack {
                 viewModel.bookDetail.image
+                .resizable()
+                .frame(width: 180, height: 280)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .shadow(color: .gray, radius: 10, x: 5, y: 5)
-                    .padding(.bottom, 15)
 
+                Spacer()
+                .frame(height: 20)
 
                 Text(viewModel.bookDetail.author)
                     .foregroundColor(.gray)
@@ -48,10 +51,13 @@ struct BookDetailView: View {
                 .frame(height: 20)
 
             Text(viewModel.bookDetail.description)
-            .padding(20)
             .lineLimit(4)
+            .padding([.leading, .trailing], 20)
             .lineSpacing(10)
-                .foregroundColor(.gray)
+            .foregroundColor(.gray)
+
+            Spacer()
+            .frame(height: 20)
 
             HStack(spacing: 20) {
                 ForEach(0 ..< viewModel.bookDetail.genre.count, id: \.self) { index in
@@ -74,8 +80,11 @@ struct BookDetailView: View {
                 .background(Color.black)
                 .cornerRadius(40)
             }
+
+            Spacer()
+            .frame(height: 10)
         }.navigationBarItems(trailing:
-            NavigationLink(destination: CartView()) {
+            NavigationLink(destination: CartView(service: viewModel.state.service)) {
                 CartButtonView(numberOfItems: viewModel.cartItems)
             }
         )

@@ -15,7 +15,7 @@ class BookDetailViewModel: ViewModel {
 
     init(service: BookService, id: Int) {
         let detail = service.bookDetails(bookId: 0)
-        let items = service.cartItems()
+        let items = service.numberOfCartItems()
         state = BookDetailState(service: service, bookDetail: detail, cartItems: items)
     }
 
@@ -23,7 +23,7 @@ class BookDetailViewModel: ViewModel {
         switch input {
         case .addBookToCart:
             state.service.addToCart(bookId: state.bookDetail.bookId)
-            state.cartItems = state.service.cartItems()
+            state.cartItems = state.service.numberOfCartItems()
         }
     }
 }
