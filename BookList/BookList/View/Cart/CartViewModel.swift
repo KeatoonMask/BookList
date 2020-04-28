@@ -12,16 +12,19 @@ class CartViewModel: ViewModel {
 
     @Published
     var state: CartState
+    private var service: BookService
 
     init(service: BookService) {
         let cart = service.cartItems()
-        state = CartState(cart: cart)
+        self.state = CartState(cart: cart)
+        self.service = service
     }
 
     func trigger(_ input: CartInput) {
         switch input {
         case .checkout:
-            print("")
+            service.checkout()
+            state.cart = service.cartItems()
         }
     }
     

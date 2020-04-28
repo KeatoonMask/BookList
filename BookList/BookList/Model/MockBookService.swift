@@ -70,6 +70,11 @@ class MockBookService: BookService {
         // Remove the item from the cart
         cart.items.remove(at: index)
     }
+
+    func checkout() {
+        // Checkout = empty cart item
+        cart = Cart(items: [], numberOfItems: 0, total: 0)
+    }
 }
 
 // MARK: - Private methods

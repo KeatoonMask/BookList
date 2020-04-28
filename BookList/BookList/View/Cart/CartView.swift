@@ -70,15 +70,18 @@ struct CartView: View {
                         .font(.system(size: 34))
                         .fontWeight(.bold)
                 }
+
+                Spacer().frame(width: 80)
             }
 
             // Checkout button
             Divider().padding()
 
-            Button(action: { }) {
+            Button(action: checkout) {
                 HStack {
                     Text("Checkout")
-                        .fontWeight(.semibold)
+                        .font(.system(size: 18))
+                        .fontWeight(.bold)
                 }
                 .frame(width: 200)
                 .padding()
@@ -87,6 +90,12 @@ struct CartView: View {
                 .cornerRadius(40)
             }
         }
+    }
+}
+
+private extension CartView {
+    func checkout() {
+        viewModel.trigger(.checkout)
     }
 }
 

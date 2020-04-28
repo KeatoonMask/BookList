@@ -15,4 +15,5 @@ protocol BookService {
     func numberOfCartItems() -> Int
     func addToCart(bookId: Int)
     func removeFromCart(bookId: Int)
+    func checkout()
 }
