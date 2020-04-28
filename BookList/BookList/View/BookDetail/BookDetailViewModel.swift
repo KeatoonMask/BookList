@@ -14,7 +14,7 @@ class BookDetailViewModel: ViewModel {
     var state: BookDetailState
 
     init(service: BookService, id: Int) {
-        let detail = service.bookDetails(bookId: 0)
+        let detail = service.bookDetails(bookId: id)
         let items = service.numberOfCartItems()
         state = BookDetailState(service: service, bookDetail: detail, cartItems: items)
     }
