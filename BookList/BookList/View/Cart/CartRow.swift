@@ -18,8 +18,9 @@ struct CartRow: View {
             VStack(alignment: .leading) {
                 Text(item.item.title)
                 Spacer().frame(height: 15)
-                Text("$18.85").font(.system(size: 18)).bold()
+                Text("$" + String(item.item.price)).font(.system(size: 18)).bold()
             }.padding([.top, .bottom])
+                .frame(width: 150)
 
             BookDetailLabelView(text: "x" + String(item.units))
                 .padding(.leading, 20)

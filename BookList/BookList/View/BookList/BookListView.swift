@@ -25,7 +25,7 @@ struct BookListView: View {
                     BookRow(book: book)
                 }
             }
-            .navigationBarTitle("Library")
+            .navigationBarTitle("Book list")
         }
     }
 }

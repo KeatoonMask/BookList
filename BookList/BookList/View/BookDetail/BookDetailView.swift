@@ -23,6 +23,8 @@ struct BookDetailView: View {
     @ObservedObject
     var viewModel: AnyViewModel<BookDetailState, BookDetailInput>
 
+    @State private var showModal = false
+
     init(service: BookService, bookId: Int) {
         self.viewModel = AnyViewModel(BookDetailViewModel(service: service, id: bookId))
     }
@@ -45,10 +47,11 @@ struct BookDetailView: View {
 
                 Text(viewModel.bookDetail.title)
                     .font(.system(size: 24, weight: .semibold))
+                    .padding([.leading, .trailing], 20)
             }
 
             Spacer()
-                .frame(height: 20)
+            .frame(height: 20)
 
             Text(viewModel.bookDetail.description)
             .lineLimit(4)
@@ -84,8 +87,14 @@ struct BookDetailView: View {
             Spacer()
             .frame(height: 10)
         }.navigationBarItems(trailing:
-            NavigationLink(destination: CartView(service: viewModel.state.service)) {
-                CartButtonView(numberOfItems: viewModel.cartItems)
+
+
+            Button(action: {
+                self.showModal = true
+            }) {
+                CartButtonView(numberOfItems: self.viewModel.cartItems)
+            }.sheet(isPresented: self.$showModal) {
+                CartView(service: self.viewModel.state.service)
             }
         )
     }
@@ -95,6 +104,23 @@ private extension BookDetailView {
     func addToCart() {
         viewModel.trigger(.addBookToCart)
     }
+}
+
+
+struct ModalView: View {
+
+  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
+  var body: some View {
+    Group {
+      Text("Modal view")
+      Button(action: {
+         self.presentationMode.wrappedValue.dismiss()
+      }) {
+        Text("Dismiss")
+      }
+    }
+  }
 }
 
 struct BookDetailView_Previews: PreviewProvider {

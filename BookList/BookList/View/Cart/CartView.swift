@@ -26,68 +26,81 @@ struct CartView: View {
     }
 
     var body: some View {
-        VStack {
-            // Title
+        ScrollView(.vertical) {
             VStack {
-                Text("Your bag")
-                    .font(.system(size: 34))
-                    .fontWeight(.bold)
-                    .padding()
-                Text(String(viewModel.state.cart.numberOfItems) + " items")
-                    .font(.system(size: 18))
-                    .foregroundColor(.gray)
-            }
+                // Dismiss button
+                HStack() {
+                    Image("iconClose")
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                    .padding(20)
 
-            // Item list
-            List(viewModel.state.cart.items) { item in
-                CartRow(item: item)
-            }
+                    Spacer()
+                }
 
-            Spacer().frame(height: 20)
-
-            // Summary
-            HStack {
+                // Title
                 VStack {
-                    Image("shipping")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .padding(.bottom, -8)
-                    Text("FREE")
-                        .font(.system(size: 16))
-                        .fontWeight(.bold)
-                        .padding(.bottom, 5)
-                }.frame(width: 64, height: 64)
-                    .background(Color.gray.opacity(0.4))
-                    .cornerRadius(15)
-
-                Spacer().frame(width: 40)
-
-                VStack(alignment: .leading) {
-                    Text("Total:")
-                        .font(.system(size: 18))
-                        .foregroundColor(.gray)
-                    Text("$" + String(viewModel.state.cart.total))
+                    Text("Your bag")
                         .font(.system(size: 34))
                         .fontWeight(.bold)
-                }
-
-                Spacer().frame(width: 80)
-            }
-
-            // Checkout button
-            Divider().padding()
-
-            Button(action: checkout) {
-                HStack {
-                    Text("Checkout")
+                    Text(String(viewModel.state.cart.numberOfItems) + " items")
                         .font(.system(size: 18))
-                        .fontWeight(.bold)
+                        .foregroundColor(.gray)
                 }
-                .frame(width: 200)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.yellow)
-                .cornerRadius(40)
+
+                // Item list
+                VStack(alignment: .leading) {
+                    ForEach(viewModel.state.cart.items) { item in
+                        CartRow(item: item)
+                    }
+                }
+
+                Spacer().frame(height: 20)
+
+                // Summary
+                HStack {
+                    VStack {
+                        Image("shipping")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .padding(.bottom, -8)
+                        Text("FREE")
+                            .font(.system(size: 16))
+                            .fontWeight(.bold)
+                            .padding(.bottom, 5)
+                    }.frame(width: 64, height: 64)
+                        .background(Color.gray.opacity(0.4))
+                        .cornerRadius(15)
+
+                    Spacer().frame(width: 40)
+
+                    VStack(alignment: .leading) {
+                        Text("Total:")
+                            .font(.system(size: 18))
+                            .foregroundColor(.gray)
+                        Text("$" + String(viewModel.state.cart.total))
+                            .font(.system(size: 34))
+                            .fontWeight(.bold)
+                    }
+
+                    Spacer().frame(width: 80)
+                }
+
+                // Checkout button
+                Divider().padding()
+
+                Button(action: checkout) {
+                    HStack {
+                        Text("Checkout")
+                            .font(.system(size: 18))
+                            .fontWeight(.bold)
+                    }
+                    .frame(width: 200)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.yellow)
+                    .cornerRadius(40)
+                }
             }
         }
     }
