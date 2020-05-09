@@ -120,9 +120,9 @@
 			children = (
 				D5187B35244647D9001BB0BC /* Book.swift */,
 				D56A71A3244764FA009E55FB /* BookDetail.swift */,
+				D54D3549244B2F4C004B44A5 /* ImageStore.swift */,
 				D54D3543244B2375004B44A5 /* Genre.swift */,
 				D52B387E24544C070091B62F /* Cart.swift */,
-				D54D3549244B2F4C004B44A5 /* ImageStore.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";

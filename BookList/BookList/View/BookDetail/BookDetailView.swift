@@ -56,7 +56,7 @@ struct BookDetailView: View {
             Text(viewModel.bookDetail.description)
             .lineLimit(4)
             .padding([.leading, .trailing], 20)
-            .lineSpacing(10)
+            .lineSpacing(6)
             .foregroundColor(.gray)
 
             Spacer()

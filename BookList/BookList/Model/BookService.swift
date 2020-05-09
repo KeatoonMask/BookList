@@ -9,8 +9,13 @@
 import Foundation
 
 protocol BookService {
+    // Book list
     func bookList() -> [Book]
+
+    // Book detail
     func bookDetails(bookId: Int) -> BookDetail
+
+    // Cart
     func cartItems() -> Cart
     func numberOfCartItems() -> Int
     func addToCart(bookId: Int)
