@@ -18,11 +18,16 @@ enum CartInput {
 
 struct CartView: View {
 
+    @Binding var showModal: Bool
+
+    @State private var showingAlert = false
+
     @ObservedObject
     var viewModel: AnyViewModel<CartState, CartInput>
 
-    init(service: BookService) {
+    init(service: BookService, showModal: Binding<Bool>) {
         self.viewModel = AnyViewModel(CartViewModel(service: service))
+        self._showModal = showModal
     }
 
     var body: some View {
@@ -89,7 +94,9 @@ struct CartView: View {
                 // Checkout button
                 Divider().padding()
 
-                Button(action: checkout) {
+                Button(action: {
+                    self.showingAlert = true
+                }) {
                     HStack {
                         Text("Checkout")
                             .font(.system(size: 18))
@@ -101,6 +108,14 @@ struct CartView: View {
                     .background(Color.yellow)
                     .cornerRadius(40)
                 }
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Order confirmed"),
+                          message: Text("Thank you for your purchase."),
+                          dismissButton: .default(Text("Done")) {
+                            self.showModal.toggle()
+                            self.viewModel.trigger(.checkout)
+                    })
+                }
             }
         }
     }
@@ -109,11 +124,6 @@ struct CartView: View {
 private extension CartView {
     func checkout() {
         viewModel.trigger(.checkout)
-    }
-}
-
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView(service: MockBookService())
+        self.showModal.toggle()
     }
 }

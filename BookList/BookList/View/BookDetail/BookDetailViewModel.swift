@@ -24,6 +24,9 @@ class BookDetailViewModel: ViewModel {
         case .addBookToCart:
             state.service.addToCart(bookId: state.bookDetail.bookId)
             state.cartItems = state.service.numberOfCartItems()
+        case .reloadState:
+            state.bookDetail = state.service.bookDetails(bookId: state.bookDetail.bookId)
+            state.cartItems = state.service.numberOfCartItems()
         }
     }
 }

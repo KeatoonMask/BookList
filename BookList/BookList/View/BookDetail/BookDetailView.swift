@@ -16,6 +16,7 @@ struct BookDetailState {
 
 enum BookDetailInput {
     case addBookToCart
+    case reloadState
 }
 
 struct BookDetailView: View {
@@ -86,23 +87,26 @@ struct BookDetailView: View {
 
             Spacer()
             .frame(height: 10)
-        }.navigationBarItems(trailing:
+        }
 
-
+        .navigationBarItems(trailing:
             Button(action: {
                 self.showModal = true
             }) {
                 CartButtonView(numberOfItems: self.viewModel.cartItems)
-            }.sheet(isPresented: self.$showModal) {
-                CartView(service: self.viewModel.state.service)
-            }
-        )
+            }.sheet(isPresented: self.$showModal, onDismiss: { self.reload() }) {
+                CartView(service: self.viewModel.state.service, showModal: self.$showModal)
+            })
     }
 }
 
 private extension BookDetailView {
     func addToCart() {
         viewModel.trigger(.addBookToCart)
+    }
+
+    func reload() {
+        viewModel.trigger(.reloadState)
     }
 }
 
