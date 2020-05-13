@@ -86,6 +86,9 @@ class MockBookService: BookService {
 
     func checkout() {
         // Checkout = empty cart item
+        for item in cart.items {
+            bookAvailable(id: item.item.id)
+        }
         cart = Cart(items: [], numberOfItems: 0, total: 0)
     }
 }
@@ -93,6 +96,14 @@ class MockBookService: BookService {
 // MARK: - Private methods
 
 private extension MockBookService {
+    func bookAvailable(id: Int) {
+        if let row = booksDetail.firstIndex(where: {$0.bookId == id}),
+            var book = booksDetail.first(where: {$0.bookId == id}) {
+            book.isAvailable = true
+            booksDetail[row] = book
+        }
+    }
+
     func updateItemCart(book: Book) {
         if let index = (cart.items.firstIndex{ $0.item.id == book.id }) {
             cart.items[index].units += 1

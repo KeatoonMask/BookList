@@ -83,7 +83,7 @@ struct CartView: View {
                         Text("Total:")
                             .font(.system(size: 18))
                             .foregroundColor(.gray)
-                        Text("$" + String(viewModel.state.cart.total))
+                        Text("$" + String(roundTotal(viewModel.state.cart.total)))
                             .font(.system(size: 34))
                             .fontWeight(.bold)
                     }
@@ -122,6 +122,11 @@ struct CartView: View {
 }
 
 private extension CartView {
+    func roundTotal(_ total: Double) -> Double {
+        let divisor = pow(10.0, Double(2))
+        return (total * divisor).rounded() / divisor
+    }
+
     func checkout() {
         viewModel.trigger(.checkout)
         self.showModal.toggle()

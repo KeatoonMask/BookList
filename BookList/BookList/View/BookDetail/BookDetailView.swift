@@ -73,22 +73,23 @@ struct BookDetailView: View {
 
             Divider().padding()
 
-            Button(action: addToCart) {
-                HStack {
-                    Text("Buy for " + String(viewModel.bookDetail.price) + "$")
-                        .fontWeight(.semibold)
-                }
-                .frame(width: 200)
-                .padding()
-                .foregroundColor(.white)
-                .background(Color.black)
-                .cornerRadius(40)
+            if viewModel.bookDetail.isAvailable {
+                // Read button
+                BookDetailButton(action: addToCart,
+                                 text: "Read",
+                                 buttonColor: Color.green)
+            } else {
+                // Add button
+                BookDetailButton(action: addToCart,
+                                 text: "Buy for " + String(viewModel.bookDetail.price) + "$",
+                                 buttonColor: Color.black)
             }
 
             Spacer()
             .frame(height: 10)
         }
 
+        // NavBar item - Checkout button
         .navigationBarItems(trailing:
             Button(action: {
                 self.showModal = true
@@ -97,6 +98,27 @@ struct BookDetailView: View {
             }.sheet(isPresented: self.$showModal, onDismiss: { self.reload() }) {
                 CartView(service: self.viewModel.state.service, showModal: self.$showModal)
             })
+    }
+}
+
+struct BookDetailButton: View {
+
+    var action: () -> ()
+    var text: String
+    var buttonColor: Color
+
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(text)
+                    .fontWeight(.semibold)
+            }
+            .frame(width: 200)
+            .padding()
+            .foregroundColor(.white)
+            .background(buttonColor)
+            .cornerRadius(40)
+        }
     }
 }
 
