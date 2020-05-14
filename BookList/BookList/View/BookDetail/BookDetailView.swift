@@ -40,11 +40,10 @@ struct BookDetailView: View {
                     .shadow(color: .gray, radius: 10, x: 5, y: 5)
 
                 Spacer()
-                .frame(height: 20)
+                .frame(height: 30)
 
                 Text(viewModel.bookDetail.author)
                     .foregroundColor(.gray)
-                    .padding(.bottom)
 
                 Text(viewModel.bookDetail.title)
                     .font(.system(size: 24, weight: .semibold))
@@ -75,14 +74,19 @@ struct BookDetailView: View {
 
             if viewModel.bookDetail.isAvailable {
                 // Read button
-                BookDetailButton(action: addToCart,
-                                 text: "Read",
-                                 buttonColor: Color.green)
+                Button(action: { self.showModal = true }) {
+                    BookDetailButton(text: "Read", buttonColor: Color.green)
+                }
+                .sheet(isPresented: self.$showModal) {
+                    BookReadingView(titleBook: self.viewModel.bookDetail.title)
+                }
+
             } else {
                 // Add button
-                BookDetailButton(action: addToCart,
-                                 text: "Buy for " + String(viewModel.bookDetail.price) + "$",
-                                 buttonColor: Color.black)
+                Button(action: { self.addToCart() }) {
+                    BookDetailButton(text: "Buy for " + String(viewModel.bookDetail.price) + "$",
+                    buttonColor: Color.black)
+                }
             }
 
             Spacer()
@@ -101,27 +105,6 @@ struct BookDetailView: View {
     }
 }
 
-struct BookDetailButton: View {
-
-    var action: () -> ()
-    var text: String
-    var buttonColor: Color
-
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Text(text)
-                    .fontWeight(.semibold)
-            }
-            .frame(width: 200)
-            .padding()
-            .foregroundColor(.white)
-            .background(buttonColor)
-            .cornerRadius(40)
-        }
-    }
-}
-
 private extension BookDetailView {
     func addToCart() {
         viewModel.trigger(.addBookToCart)
@@ -132,21 +115,22 @@ private extension BookDetailView {
     }
 }
 
+struct BookDetailButton: View {
 
-struct ModalView: View {
+    var text: String
+    var buttonColor: Color
 
-  @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-  var body: some View {
-    Group {
-      Text("Modal view")
-      Button(action: {
-         self.presentationMode.wrappedValue.dismiss()
-      }) {
-        Text("Dismiss")
-      }
+    var body: some View {
+        HStack {
+            Text(text)
+                .fontWeight(.semibold)
+        }
+        .frame(width: 200)
+        .padding()
+        .foregroundColor(.white)
+        .background(buttonColor)
+        .cornerRadius(40)
     }
-  }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
