@@ -37,7 +37,7 @@ class MockBookService: BookService {
 
         BookDetail(id: "1", bookId: 6, author: "Stuart J. Rossell", title: "Artificial Intelligence: A Modern Approach", price: 22.99, genre: [Genre.scienceFiction, Genre.present], kind: "AI", description: "The long-anticipated revision of this best-selling text offers the most comprehensive, up-to-date introduction to the theory and practice of artificial intelligence.", imageName: "ai", isAvailable: false),
 
-        BookDetail(id: "1", bookId: 7, author: "Ed Catmull", title: "Creativity, Inc.", price: 17.85, genre: [Genre.fantasy, Genre.action], kind: "Novel",description: "This is the story behind the company that changed animation forever. Here, the founder of Pixar reveals the ideas and techniques that have made Pixar one of the most widely admired creative businesses, and one of the most profitable.", imageName: "creativity", isAvailable: false)
+        BookDetail(id: "1", bookId: 7, author: "Ed Catmull", title: "Creativity, Inc.", price: 17.85, genre: [Genre.business, Genre.economics], kind: "Print",description: "This is the story behind the company that changed animation forever. Here, the founder of Pixar reveals the ideas and techniques that have made Pixar one of the most widely admired creative businesses, and one of the most profitable.", imageName: "creativity", isAvailable: false)
     ]
 
     var cart = Cart(items: [], numberOfItems: 0, total: 0)
@@ -53,10 +53,6 @@ class MockBookService: BookService {
         return details!
     }
 
-    // MARK: Cart
-    func cartItems() -> Cart {
-        return cart
-    }
     func numberOfCartItems() -> Int {
         return cart.numberOfItems
     }
@@ -70,18 +66,9 @@ class MockBookService: BookService {
         updateItemCart(book: book)
     }
 
-    func removeFromCart(bookId: Int) {
-        guard let index = (cart.items.firstIndex{ $0.item.id == bookId }) else { return }
-
-        // Update number of items and total price of cart
-        let units = cart.items[index].units
-        let bookPrice = cart.items[index].item.price
-
-        cart.numberOfItems -= units
-        cart.total -= (bookPrice * Double(units))
-
-        // Remove the item from the cart
-        cart.items.remove(at: index)
+    // MARK: Cart
+    func cartItems() -> Cart {
+        return cart
     }
 
     func checkout() {

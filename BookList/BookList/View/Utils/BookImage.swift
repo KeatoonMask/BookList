@@ -10,6 +10,7 @@ import SwiftUI
 
 struct BookImage: View {
     let image: Image
+    
     var body: some View {
         image
         .resizable()

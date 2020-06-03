@@ -19,6 +19,8 @@ enum Genre: String, Hashable {
     case romance
     case scienceFiction
     case present
+    case business
+    case economics
 
     var description: String {
         switch self {
@@ -32,6 +34,8 @@ enum Genre: String, Hashable {
             case .romance: return NSLocalizedString("Romance", comment: "Romance")
             case .scienceFiction: return NSLocalizedString("Science Fiction", comment: "Science Fiction")
             case .present: return NSLocalizedString("Present", comment: "Present")
+            case .business: return NSLocalizedString("Business", comment: "Business")
+            case .economics: return NSLocalizedString("Economics", comment: "Economics")
         }
     }
 }

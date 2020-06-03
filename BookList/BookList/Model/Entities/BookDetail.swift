@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct BookDetail: Identifiable {
+struct BookDetail {
     var id: String
     var bookId: Int
     var author: String

@@ -25,6 +25,7 @@ struct BookDetailView: View {
     var viewModel: AnyViewModel<BookDetailState, BookDetailInput>
 
     @State private var showModal = false
+    @State private var showAlert = false
 
     init(service: BookService, bookId: Int) {
         self.viewModel = AnyViewModel(BookDetailViewModel(service: service, id: bookId))
@@ -32,7 +33,6 @@ struct BookDetailView: View {
 
     var body: some View {
         VStack {
-            VStack {
                 viewModel.bookDetail.image
                 .resizable()
                 .frame(width: 180, height: 280)
@@ -48,7 +48,7 @@ struct BookDetailView: View {
                 Text(viewModel.bookDetail.title)
                     .font(.system(size: 24, weight: .semibold))
                     .padding([.leading, .trailing], 20)
-            }
+
 
             Spacer()
             .frame(height: 20)
@@ -69,8 +69,13 @@ struct BookDetailView: View {
                 }
                 BookDetailLabelView(text: viewModel.bookDetail.kind)
             }
+            .padding(.bottom, 10)
 
-            Divider().padding()
+            Divider()
+                .padding(.bottom, 30)
+                .padding([.leading, .trailing], 20)
+
+
 
             if viewModel.bookDetail.isAvailable {
                 // Read button
@@ -83,14 +88,17 @@ struct BookDetailView: View {
 
             } else {
                 // Add button
-                Button(action: { self.addToCart() }) {
+                Button(action: {
+                    self.addToCart()
+                    self.showAlert = true
+                }) {
                     BookDetailButton(text: "Buy for " + String(viewModel.bookDetail.price) + "$",
                     buttonColor: Color.black)
                 }
-            }
-
-            Spacer()
-            .frame(height: 10)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("Book added to cart"), message: Text("You're ready to proceed to checkout and complete your order."), dismissButton: .default(Text("Done")))
+                }
+            }           
         }
 
         // NavBar item - Checkout button
@@ -102,6 +110,7 @@ struct BookDetailView: View {
             }.sheet(isPresented: self.$showModal, onDismiss: { self.reload() }) {
                 CartView(service: self.viewModel.state.service, showModal: self.$showModal)
             })
+        .navigationBarTitle(Text(""), displayMode: .inline)
     }
 }
 

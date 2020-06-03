@@ -27,6 +27,6 @@ struct BookRow: View {
 
 struct BookRow_Previews: PreviewProvider {
     static var previews: some View {
-        BookRow(book: Book(id: 0, title: "The Lord of the Rings: The Fellowship of the Ring", author: "J. R. R. Tolkien", price: 18.85, imageName: "fellowship"))
+        BookRow(book: Book(id: 7, title: "Creativity, Inc.", author: "Ed Catmull", price: 17.85, imageName: "creativity"))
     }
 }

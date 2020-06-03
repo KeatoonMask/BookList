@@ -59,5 +59,4 @@ final class AnyViewModel<State, Input>: ViewModel {
         self.wrappedState = { viewModel.state }
         self.wrappedTrigger = viewModel.trigger
     }
-
 }
