@@ -22,7 +22,7 @@ struct CartRow: View {
             }.padding([.top, .bottom])
                 .frame(width: 150)
 
-            BookDetailLabelView(text: "x" + String(item.units))
+            BookDetailLabel(text: "x" + String(item.units))
                 .padding(.leading, 20)
         }
     }

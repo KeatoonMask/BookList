@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BookDetailLabelView: View {
+struct BookDetailLabel: View {
 
     var text: String
 
@@ -25,6 +25,6 @@ struct BookDetailLabelView: View {
 
 struct BookDetailLabelView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailLabelView(text: "Fantasy")
+        BookDetailLabel(text: "Fantasy")
     }
 }

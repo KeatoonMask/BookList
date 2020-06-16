@@ -19,6 +19,7 @@ enum BookDetailInput {
     case reloadState
 }
 
+// MARK: - Book Detail
 struct BookDetailView: View {
 
     @ObservedObject
@@ -33,41 +34,38 @@ struct BookDetailView: View {
 
     var body: some View {
         VStack {
-                viewModel.bookDetail.image
-                .resizable()
-                .frame(width: 180, height: 280)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: .gray, radius: 10, x: 5, y: 5)
 
-                Spacer()
+            BookDetailImage(image: viewModel.bookDetail.image)
+
+            Spacer()
                 .frame(height: 30)
 
-                Text(viewModel.bookDetail.author)
-                    .foregroundColor(.gray)
+            Text(viewModel.bookDetail.author)
+                .foregroundColor(.gray)
 
-                Text(viewModel.bookDetail.title)
-                    .font(.system(size: 24, weight: .semibold))
-                    .padding([.leading, .trailing], 20)
+            Text(viewModel.bookDetail.title)
+                .font(.system(size: 24, weight: .semibold))
+                .padding([.leading, .trailing], 20)
 
 
             Spacer()
-            .frame(height: 20)
+                .frame(height: 20)
 
             Text(viewModel.bookDetail.description)
-            .lineLimit(4)
-            .padding([.leading, .trailing], 20)
-            .lineSpacing(6)
-            .foregroundColor(.gray)
+                .lineLimit(4)
+                .padding([.leading, .trailing], 20)
+                .lineSpacing(6)
+                .foregroundColor(.gray)
 
             Spacer()
-            .frame(height: 20)
+                .frame(height: 20)
 
             HStack(spacing: 20) {
                 ForEach(0 ..< viewModel.bookDetail.genre.count, id: \.self) { index in
-                    BookDetailLabelView(text: self.viewModel.bookDetail.genre[index].description)
+                    BookDetailLabel(text: self.viewModel.bookDetail.genre[index].description)
 
                 }
-                BookDetailLabelView(text: viewModel.bookDetail.kind)
+                BookDetailLabel(text: viewModel.bookDetail.kind)
             }
             .padding(.bottom, 10)
 
@@ -114,6 +112,7 @@ struct BookDetailView: View {
     }
 }
 
+// MARK: - Private extension
 private extension BookDetailView {
     func addToCart() {
         viewModel.trigger(.addBookToCart)
@@ -121,24 +120,6 @@ private extension BookDetailView {
 
     func reload() {
         viewModel.trigger(.reloadState)
-    }
-}
-
-struct BookDetailButton: View {
-
-    var text: String
-    var buttonColor: Color
-
-    var body: some View {
-        HStack {
-            Text(text)
-                .fontWeight(.semibold)
-        }
-        .frame(width: 200)
-        .padding()
-        .foregroundColor(.white)
-        .background(buttonColor)
-        .cornerRadius(40)
     }
 }
 
