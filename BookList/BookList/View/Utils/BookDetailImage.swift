@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct BookDetailImage: View {
     let image: Image
 

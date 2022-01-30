@@ -14,7 +14,7 @@ class BookListViewModel: ViewModel {
     var state: BookListState
 
     init(service: BookService) {
-        let books = MockBookService().bookList()
+        let books = service.bookList()
         self.state = BookListState(service: service, books: books)
     }
 
